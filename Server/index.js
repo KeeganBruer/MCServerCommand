@@ -8,9 +8,7 @@ const port = process.env.PORT || 3000;
 
 
 const app = express();
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Client/build", "index.html"));
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
 
