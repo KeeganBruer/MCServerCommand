@@ -12,7 +12,6 @@ class MCServer {
 		this.commandArray = [];
 		this.commandQueue = "";
 		this.startMCServer();
-		console.log(this.socket)
 	}
 	startMCServer() {
 		//Launch Server based on Operating System
@@ -73,7 +72,6 @@ class MCServer {
 		this.LogManager.onConsoleOutput(response);
 	}
 	sendConsoleInput(data) {
-		console.log(data);
 		//Send output with a newline character to act as pressing the enter key.
 		this.console.stdin.write(data.body + "\n");
 		this.LogManager.onConsoleInput(data);

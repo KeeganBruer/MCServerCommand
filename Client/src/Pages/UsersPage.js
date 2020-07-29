@@ -11,6 +11,15 @@ import "./CSS/UsersPage.css";
 
 
 class Users extends Component {
+	constructor(props) {
+		super(props);
+				
+		this.props.App.state.socket.on("onAllUsers", (data) => {
+			console.log(data);
+		});
+		
+		this.props.App.state.socket.emit("getAllUsers", "");
+	}
 	render() {
 		return (
 			<div>

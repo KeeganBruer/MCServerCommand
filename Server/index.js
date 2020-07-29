@@ -19,11 +19,17 @@ const MCServer = new MCServerClass(io, LogManager);
 
 io.on("connection", (socket) => {
   console.log("New client connected");
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
+  socket.on("getConsoleHistory", (data) => {
+	 socket.emit("setAllUsers", LogManager.getConsoleHistory()); 
+  });
+  socket.on("getAllUsers", (data) => {
+	 socket.emit("onAllUsers", LogManager.getAllUsers());
   });
   socket.on("onConsoleInput", (data) => {
 	 MCServer.sendConsoleInput(data); 
+  });
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
   });
 });
 

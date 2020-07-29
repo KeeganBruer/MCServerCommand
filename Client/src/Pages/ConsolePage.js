@@ -11,7 +11,7 @@ import Entry from "Components/ConsoleEntry";
 import "./CSS/ConsolePage.css";
 
 //CONFIGURABLES
-const maxConsoleMessages = 20;
+const maxConsoleMessages = 100;
 
 class ConsolePage extends Component {
 	constructor(props) {
