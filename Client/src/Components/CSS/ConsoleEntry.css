@@ -1,0 +1,28 @@
+.ConsoleEntry {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	width: 100%;
+	min-height: 50px;
+}
+
+.ServerType {
+	background-color: gray;
+}
+
+.ClientType {
+	background-color: red;
+}
+
+.UserType {
+	background-color: blue;
+}
+
+.Timestamp {
+	margin: 0px 10px;
+}
+
+.Body {
+	margin: 0px 10px;
+}
+

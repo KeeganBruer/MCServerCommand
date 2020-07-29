@@ -3,7 +3,9 @@ const router = express.Router();
 const http = require("http");
 const socketIo = require("socket.io");
 const path = require('path');
-
+const MCServerClass = require(path.resolve( __dirname, "./MCServer.js"));
+const LogManagerClass = require(path.resolve( __dirname, "./LogManager.js"));
+const LogManager = new LogManagerClass();
 const port = process.env.PORT || 3000;
 
 
@@ -13,27 +15,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 const server = http.createServer(app);
 
 const io = socketIo(server);
-
-let interval;
+const MCServer = new MCServerClass(io, LogManager);
 
 io.on("connection", (socket) => {
   console.log("New client connected");
-  if (interval) {
-    clearInterval(interval);
-  }
-  
-  interval = setInterval(() => getApiAndEmit(socket), 1000);
   socket.on("disconnect", () => {
     console.log("Client disconnected");
-    clearInterval(interval);
+  });
+  socket.on("onConsoleInput", (data) => {
+	 MCServer.sendConsoleInput(data); 
   });
 });
 
-const getApiAndEmit = socket => {
-  const response = new Date();
-  // Emitting a new message. Will be consumed by the client
-  socket.emit("FromAPI", response.toLocaleTimeString());
-};
-
 server.listen(4000, () => console.log(`Listening on port ${port}`));
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+if (false) {
+	app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+}

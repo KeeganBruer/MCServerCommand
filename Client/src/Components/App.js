@@ -1,40 +1,48 @@
+//IMPORT REACTJS Components
 import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
-import Home from "Pages/Home"
-import Test from "Pages/Test"
 
+//IMPORT LIBRARIES
 import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
+
+//IMPORT PAGES
+import HomePage from "Pages/HomePage"
+import UsersPage from "Pages/UsersPage"
+import ConsolePage from "Pages/ConsolePage"
+
+//IMPORT CSS STYLINGS
+import "./CSS/App.css";
+
+//CONFIGURABLES
 const ENDPOINT = "http://localhost:4000";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
+		const socket = socketIOClient(ENDPOINT);
 		this.state = {
 			timestamp: 0,
-			username: ""
+			username: "",
+			socket: socket
 		};
 	}
 	componentDidMount() {
-		const socket = socketIOClient(ENDPOINT);
-		socket.on("FromAPI", data => {
-		  this.setState({ timestamp: data });
-		});
-
-		// CLEAN UP THE EFFECT
-		return () => socket.disconnect();
+		
+		// Clean up socket after unmount
+		return () => this.state.socket.disconnect();
 	}
 	render() {
-		
 		return (
 			<Router>
 			  <Switch>
-				<Route exact path="/" ><Home App={this}/></Route>
-				<Route path="/Test"><Test App={this}/></Route>
+				<Route exact path="/" ><HomePage App={this}/></Route>
+				<Route path="/Users"><UsersPage App={this}/></Route>
+				<Route path="/Console"><ConsolePage App={this}/></Route>
 			  </Switch>
 			</Router>
 		);

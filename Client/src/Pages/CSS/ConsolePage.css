@@ -1,0 +1,15 @@
+.PageWrapper {
+	height: 100%;
+}
+
+.Console {
+	width: 100%;
+	height: 80vh;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.ConsoleInput {
+	
+}

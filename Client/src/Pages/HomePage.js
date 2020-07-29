@@ -1,8 +1,14 @@
+//IMPORT REACTJS Components
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
-import "./CSS/Home.css"
 
+//IMPORT COMPONENTS
+import NavBar from "Components/NavigationBar"
 import RedirectButton from "Components/RedirectButton"
+
+//IMPORT CSS STYLINGS
+import "./CSS/HomePage.css"
+
 
 class Home extends Component {
 	constructor(props) {
@@ -17,10 +23,10 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
+				<NavBar currentPage="Home"/>
 				<h3>Current Username:
 				<input type="text" value={this.props.App.state.username} onChange={this.handleChange} />
 				</h3>
-				<RedirectButton location="Test" value="Go To Time Display"/>
 			</div>
 		);
 	}
