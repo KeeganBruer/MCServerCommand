@@ -1,8 +1,8 @@
 const { exec } = require('child_process');
 
-Array.prototype.eventPush = function(item, callback) {
+Array.prototype.eventPush = function(item, callback, options) {
   this.push(item);
-  callback(this);
+  callback(this, options);
 }
 
 class MCServer {
@@ -11,6 +11,7 @@ class MCServer {
 		this.LogManager = LogManager;
 		this.commandArray = [];
 		this.commandQueue = "";
+		this.playerEvents = [];
 		this.startMCServer();
 	}
 	startMCServer() {
@@ -70,11 +71,39 @@ class MCServer {
 			this.socket.emit("onConsoleOutput", response);
 		}
 		this.LogManager.onConsoleOutput(response);
+		
+		if (body.indexOf("connected") < 0) {
+			return;
+		}
+		let playerData = body.replace("Player", "")
+		console.log(playerData);
+		let type= playerData.split(" ")[0].trim();
+		let playerName = playerData.split(" ")[1].split(", ")[0].trim()
+		let playerXuid = playerData.split(", ")[1].replace("xuid:").trim()
+		this.playerEvents.eventPush({
+			type: type,
+			username: playerName,
+			xuid: playerXuid,
+			timestamp: timestamp,
+			body: body
+		}, this.onPlayerEvent, this);
 	}
 	sendConsoleInput(data) {
 		//Send output with a newline character to act as pressing the enter key.
 		this.console.stdin.write(data.body + "\n");
 		this.LogManager.onConsoleInput(data);
+	}
+	onPlayerEvent(array, options) {
+		let pEvent = array.pop();
+		let response = {
+			msgType: "User",
+			timestamp: pEvent.timestamp,
+			body: "Player Connected " + pEvent.username
+		}
+		if (options.socket) {
+			options.socket.emit("onConsoleOutput", response);
+		}
+		options.LogManager.onConsoleOutput(response);
 	}
 }
 

@@ -18,6 +18,10 @@ class NavigationBar extends Component {
 			value: "Home"
 		},
 		{
+			location: "/Settings",
+			value: "Settings"
+		},
+		{
 			location: "/Users",
 			value: "Users"
 		},

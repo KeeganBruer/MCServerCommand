@@ -1,0 +1,15 @@
+.SettingEntry {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 0px;
+	width: 90%;
+	background-color: white;
+	border-radius: 10px;
+}
+.SettingsName {
+	font-size: 15px;
+	width: 200px;
+	margin-left: 10px;
+}
+

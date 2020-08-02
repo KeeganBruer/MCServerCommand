@@ -1,0 +1,20 @@
+Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:39 AM
+Client|$| gamerule dodaylightcycle false|$| 12:32:39 AM
+Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:32 AM
+Client|$| gamerule dodaylightcycle false|$| 12:32:32 AM
+Server|$| Server started.|$| 2020-08-02 00:32:27
+Server|$| IPv6 supported, port: 64469|$| 2020-08-02 00:32:27
+Server|$| IPv4 supported, port: 64468|$| 2020-08-02 00:32:27
+Server|$| IPv6 supported, port: 19133|$| 2020-08-02 00:32:26
+Server|$| IPv4 supported, port: 19132|$| 2020-08-02 00:32:26
+Server|$| opening worlds/Bedrock level/db|$| 2020-08-02 00:32:26
+Server|$| Difficulty: 1 EASY|$| 2020-08-02 00:32:25
+Server|$| Game mode: 0 Survival|$| 2020-08-02 00:32:25
+Server|$| Level Name: Bedrock level|$| 2020-08-02 00:32:25
+Server|$| Session ID b133bd85-dc22-443e-ab84-4c0f881c3e8d|$| 2020-08-02 00:32:25
+Server|$| Version 1.16.10.2|$| 2020-08-02 00:32:25
+Server|$| Starting Server|$| 2020-08-02 00:32:25
+Server|$| NO LOG FILE! - setting up server logging...|$| 12:32:25 AM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 12:32:25 AM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 12:32:25 AM
+Server|$| Your private IP address is|$| 12:32:25 AM

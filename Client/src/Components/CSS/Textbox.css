@@ -1,0 +1,15 @@
+.Dropdown {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 0px 10px;
+}
+
+.textbox {
+	text-align:right;
+}
+.changeButton {
+	width: 30px;
+	height: 30px;
+	background-color: red;
+}

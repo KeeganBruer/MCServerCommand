@@ -1,0 +1,6 @@
+Server|$| Game rule dodaylightcycle has been updated to false|$| 12:33:43 AM
+Client|$| gamerule dodaylightcycle false|$| 12:33:43 AM
+Server|$| Game rule dodaylightcycle has been updated to true|$| 12:32:45 AM
+Client|$| gamerule dodaylightcycle true|$| 12:32:45 AM
+Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:44 AM
+Client|$| gamerule dodaylightcycle false|$| 12:32:44 AM

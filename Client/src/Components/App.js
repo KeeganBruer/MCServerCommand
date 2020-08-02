@@ -12,6 +12,7 @@ import socketIOClient from "socket.io-client";
 
 //IMPORT PAGES
 import HomePage from "Pages/HomePage"
+import SettingsPage from "Pages/SettingsPage"
 import UsersPage from "Pages/UsersPage"
 import ConsolePage from "Pages/ConsolePage"
 
@@ -41,6 +42,7 @@ class App extends Component {
 			<Router>
 			  <Switch>
 				<Route exact path="/" ><HomePage App={this}/></Route>
+				<Route path="/Settings"><SettingsPage App={this}/></Route>
 				<Route path="/Users"><UsersPage App={this}/></Route>
 				<Route path="/Console"><ConsolePage App={this}/></Route>
 			  </Switch>

@@ -11,14 +11,15 @@ import Entry from "Components/ConsoleEntry";
 import "./CSS/ConsolePage.css";
 
 //CONFIGURABLES
-const maxConsoleMessages = 100;
+const maxConsoleMessages = 20;
 
 class ConsolePage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			command: '',
-			entries: []
+			entries: [],
+			consoleHistoryUpToDate: false
 		};
 		
 		//BIND CUSTOM FUNCTIONS
@@ -27,7 +28,16 @@ class ConsolePage extends Component {
 		this.addEntry = this.addEntry.bind(this);
 		
 		this.props.App.state.socket.on("onConsoleOutput", (data) => {
+			console.log(data);
 			this.addEntry(data);
+		});
+		this.props.App.state.socket.on("onConsoleHistory", (data) => {
+			if (!this.state.consoleHistoryUpToDate) {
+				for (let entry of data ) {
+					this.addEntry(entry);
+				}
+				this.setState({consoleHistoryUpToDate: true});
+			}
 		});
 		
 		this.props.App.state.socket.emit("getConsoleHistory", maxConsoleMessages);

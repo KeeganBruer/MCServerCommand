@@ -20,7 +20,7 @@ const MCServer = new MCServerClass(io, LogManager);
 io.on("connection", (socket) => {
   console.log("New client connected");
   socket.on("getConsoleHistory", (data) => {
-	 socket.emit("setAllUsers", LogManager.getConsoleHistory()); 
+	 socket.emit("onConsoleHistory", LogManager.getConsoleHistory(data)); 
   });
   socket.on("getAllUsers", (data) => {
 	 socket.emit("onAllUsers", LogManager.getAllUsers());

@@ -1,0 +1,21 @@
+Server|$| 71.81.201.40|$| 12:32:25 AM
+Server|$| Your public IP address is|$| 12:32:25 AM
+Server|$| 08-02-2020|$| 12:32:25 AM
+Server|$| NO LOG FILE! - [2020-08-02 00:32:18 ERROR] Network port occupied, can't start server.|$| 12:32:18 AM
+Server|$| IPv6 supported, port: 0|$| NO LOG FILE! - 2020-08-02 00:32:18
+Server|$| IPv4 supported, port: 0|$| NO LOG FILE! - 2020-08-02 00:32:18
+Server|$| NO LOG FILE! - [2020-08-02 00:32:17 WARN] LevelDB worlds/Bedrock level/db status NOT OK(IO error: _wfopen_s failed to open file for: ReadBinary(rb). ErrorCode: 13 - 'Permission denied'). Trying repair.|$| 12:32:17 AM
+Server|$| opening worlds/Bedrock level/db|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Difficulty: 1 EASY|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Game mode: 0 Survival|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Level Name: Bedrock level|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Session ID 61775d9c-a5d0-48b6-b0a6-e9a53fbbca6e|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Version 1.16.10.2|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| Starting Server|$| NO LOG FILE! - 2020-08-02 00:32:17
+Server|$| NO LOG FILE! - setting up server logging...|$| 12:32:17 AM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 12:32:17 AM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 12:32:17 AM
+Server|$| Your private IP address is|$| 12:32:17 AM
+Server|$| 71.81.201.40|$| 12:32:17 AM
+Server|$| Your public IP address is|$| 12:32:17 AM
+Server|$| 08-02-2020|$| 12:32:17 AM
