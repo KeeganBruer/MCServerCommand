@@ -21,6 +21,10 @@ class ConsoleEntry extends Component {
 		{
 			msgType: "User",
 			className: "UserType"
+		},
+		{
+			msgType: "Interface",
+			className: "InterfaceType"
 		}
 		];
 		//Loop over the modifiers and apply them. Capable of multiple modifiers because of indexOf(). 

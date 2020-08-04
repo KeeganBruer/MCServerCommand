@@ -15,30 +15,66 @@ class SettingsPage extends Component {
 	constructor(props) {
 		super(props);
 		this.onSave = this.onSave.bind(this);
+		this.resetToDefaults = this.resetToDefaults.bind(this);
 		this.onPropertiesChange = this.onPropertiesChange.bind(this);
 		this.onGameruleChange = this.onGameruleChange.bind(this);
 		let properties = this.generateProperties();
 		let gamerules = this.generateGamerules();
 		this.state = {
 			properties: properties,
-			gamerules: gamerules
+			propertiesNeedSaving: false,
+			gamerules: gamerules,
+			gamerulesNeedSaving: false
 		}
+		this.props.App.state.socket.on("onGamerules", (data) => {
+			let gamerules = this.state.gamerules;
+			let newGamerules = [];
+			for (let i in gamerules) {
+				for (let rule of data) {
+					if (gamerules[i].settingValue == rule.settingValue) {
+						gamerules[i].value = rule.value;
+						newGamerules.push(gamerules[i]);
+					}
+				}
+			}
+			console.log(data);
+			console.log(newGamerules);
+			this.setState({gamerules: newGamerules, gamerulesNeedSaving: true});
+		});
+	}
+	componentDidMount() {
+		this.props.App.state.socket.emit("getGamerules", "");
 	}
 	onSave(e) {
 		e.preventDefault();
 		console.log(this.state.properties);
+		this.setState({propertiesNeedSaving: false});
+	}
+	resetToDefaults(e) {
+		let propArray = this.state.properties;
+		for (let i in propArray) {
+			propArray[i].value = propArray[i].defaultValue;
+		}
+		let ruleArray = this.state.gamerules;
+		for (let i in ruleArray) {
+			ruleArray[i].value = ruleArray[i].defaultValue;
+		}
+		this.setState({
+				properties: propArray,
+				gamerules: ruleArray
+			});
 	}
 	onPropertiesChange(value, i) {
 		let properties = this.state.properties;
 		properties[i].value = value;
-		this.setState({properties: properties});
+		this.setState({properties: properties, propertiesNeedSaving: true});
 	}
 	onGameruleChange(value, i) {
 		let gamerules = this.state.gamerules;
 		gamerules[i].value = value;
-		this.setState({gamerules: gamerules});
+		this.setState({gamerules: gamerules, gamerulesNeedSaving: true});
 		let command = "gamerule " + gamerules[i].settingValue + " " + value;
-		let response = {msgType: "Client", timestamp: new Date().toLocaleTimeString(), body: command};
+		let response = {msgType: "Hidden", timestamp: new Date().toLocaleTimeString(), body: command};
 		this.props.App.state.socket.emit("onConsoleInput", response);
 	}
 	render() {
@@ -130,12 +166,19 @@ class SettingsPage extends Component {
 				);
 			}
 		}
+		let PNSClass = "";
+		if (this.state.propertiesNeedSaving) {
+			PNSClass = "NeedSaving"
+		}
 		return (
 			<div>
 				<NavBar currentPage="Settings"/>
-				<div onClick={this.onSave}>save</div>
 				<div className="DuelPanel">
 					<div className="Left">
+						<div className="Footer">
+							<input type="button" className={PNSClass} onClick={this.onSave} value="SAVE CHANGES"/>
+							<input type="button"  onClick={this.resetToDefaults} value="RESET TO DEFAULTS"/>
+						</div>
 						{propertiesComponents}
 					</div>
 					<div className="Right">
@@ -149,12 +192,27 @@ class SettingsPage extends Component {
 	generateProperties() {
 		let properties = [
 		{
-			settingName: "Difficulty",
-			settingValue: "difficulty",
+			settingName: "Server Name",
+			settingValue: "server-name",
+			defaultValue: "Dedicated Server",
+			value: "Dedicated Server",
+			selectionType: "textbox",
+		},
+		{
+			settingName: "Gamemode",
+			settingValue: "gamemode",
 			defaultValue: "survival",
 			value: "survival",
 			selectionType: "dropdown",
 			dropDownArray: ["survival", "adventure", "creative"]
+		},
+		{
+			settingName: "Difficulty",
+			settingValue: "difficulty",
+			defaultValue: "easy",
+			value: "easy",
+			selectionType: "dropdown",
+			dropDownArray: ["peaceful", "easy", "normal", "hard"]
 		},
 		{
 			settingName: "Allow Cheats",
@@ -189,14 +247,14 @@ class SettingsPage extends Component {
 			settingValue: "server-port",
 			defaultValue: "19132",
 			value: "19132",
-			selectionType: "textbox"
+			selectionType: "counter"
 		},
 		{
 			settingName: "Server Port V6",
 			settingValue: "server-portv6",
 			defaultValue: "19133",
 			value: "19133",
-			selectionType: "textbox"
+			selectionType: "counter"
 		},
 		{
 			settingName: "View Distance",
@@ -239,7 +297,7 @@ class SettingsPage extends Component {
 			settingValue: "level-seed",
 			defaultValue: "",
 			value: "",
-			selectionType: "textbox"
+			selectionType: "counter"
 		},
 		{
 			settingName: "Default Player Permission Level",
@@ -259,11 +317,9 @@ class SettingsPage extends Component {
 		{
 			settingName: "Content Log File Enabled",
 			settingValue: "content-log-file-enabled",
-			defaultValue: "survival",
-			value: "survival",
-			selectionType: "range",
-			rangeMax: 10,
-			rangeMin: 0
+			defaultValue: "false",
+			value: "false",
+			selectionType: "toggle",
 			
 		},
 		{
@@ -271,7 +327,9 @@ class SettingsPage extends Component {
 			settingValue: "compression-threshold",
 			defaultValue: "1",
 			value: "1",
-			selectionType: "counter"
+			selectionType: "range",
+			rangeMax: 65535,
+			rangeMin: 0
 			
 		},
 		{
@@ -444,9 +502,9 @@ class SettingsPage extends Component {
 		{
 			settingName: "Max Command Chain Length",
 			settingValue: "maxcommandchainlength",
-			defaultValue: "true",
-			value: "true",
-			selectionType: "toggle"
+			defaultValue: "65535",
+			value: "65535",
+			selectionType: "counter"
 		},
 		{
 			settingName: "Do Insomnia",
@@ -465,9 +523,9 @@ class SettingsPage extends Component {
 		{
 			settingName: "Random Tick Speed",
 			settingValue: "randomtickspeed",
-			defaultValue: "true",
-			value: "true",
-			selectionType: "toggle"
+			defaultValue: "1",
+			value: "1",
+			selectionType: "counter"
 		},
 		{
 			settingName: "Do Immediate Respawn",
@@ -486,16 +544,16 @@ class SettingsPage extends Component {
 		{
 			settingName: "Function Command Limit",
 			settingValue: "functioncommandlimit",
-			defaultValue: "true",
-			value: "true",
-			selectionType: "toggle"
+			defaultValue: "10000",
+			value: "10000",
+			selectionType: "counter"
 		},
 		{
 			settingName: "Spawn Radius",
 			settingValue: "spawnradius",
-			defaultValue: "true",
-			value: "true",
-			selectionType: "toggle"
+			defaultValue: "5",
+			value: "5",
+			selectionType: "counter"
 		},
 		{
 			settingName: "Show Tags",

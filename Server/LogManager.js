@@ -36,9 +36,10 @@ class LogManager {
 		this.today = new Date();
 		this.todayAsString = this.today.getDate() + "-" + (this.today.getMonth() + 1) + "-" + this.today.getFullYear(); 
 		this.logs = [];
-		this.logFilesMaxLines = 20;
+		this.logFilesMaxLines = 50;
+		this.isWaitingForResponse = false;
+		this.onResponseCallback;
 		this.reloadLogs();
-		console.log(this.logs);
 		this.saveLog();
 	}
 	reloadUsers() {
@@ -109,7 +110,7 @@ class LogManager {
 					let msgType = itemAsArray[0].trim();
 					let body = itemAsArray[1].trim();
 					let timestamp = itemAsArray[2].trim();
-					logArray.unshift({
+					logArray.unshift({ //add item to front of array
 						msgType: msgType,
 						timestamp: timestamp,
 						body: body
@@ -130,31 +131,48 @@ class LogManager {
 		fs.writeFileSync('./Logs/LogPart'+ logCount +'.txt', "");
 		for (let ri in data) {
 			let i = (data.length-1) - ri;
-			if (data[i] != undefined) {
-				if (i%this.logFilesMaxLines == 0 && i != 0) {
+			
+			if (data[i] != undefined && data[i].msgType != undefined && data[i].body != undefined) {
+				let logAsString = data[i].msgType + "|$| " + data[i].body + "|$| " + data[i].timestamp;
+				
+				if ((ri%this.logFilesMaxLines == 0 && ri != 0) || i == 0) {
+					fs.appendFileSync('./Logs/LogPart'+ logCount +'.txt', logAsString);
+				} else {
+					fs.appendFileSync('./Logs/LogPart'+ logCount +'.txt', logAsString + "\n");
+				}
+				
+				if (ri%this.logFilesMaxLines == 0 && ri != 0) {
 					logCount += 1;
 					fs.writeFileSync('./Logs/LogPart'+ logCount +'.txt', "");
-				}
-				let logAsString = data[i].msgType + "|$| " + data[i].body + "|$| " + data[i].timestamp; 
-				if (i != 0) {
-					logAsString += "\n";
-				}
-				fs.appendFileSync('./Logs/LogPart'+ logCount +'.txt', logAsString);
+				} 
 			}
 		}
 	}
 	onConsoleOutput(data) {
+		if (this.isWaitingForResponse) {
+			this.onResponseCallback(data);
+			this.isWaitingForResponse = false;
+			this.onResponseCallback = undefined;
+			return false;
+		}
 		this.reloadLogs();
-		this.logs.push(data);
+		this.logs.unshift(data);
 		this.saveLog();
+		return true;
 	}
-	onConsoleInput(data) {
+	onConsoleInput(data, callback) {
+		if (callback != undefined) {
+			this.isWaitingForResponse = true;
+			this.onResponseCallback = callback;
+			return;
+		}
 		this.reloadLogs();
-		this.logs.push(data);
+		this.logs.unshift(data);
 		this.saveLog();
 	}
 	getConsoleHistory(n) {
-		return this.logs.slice(n, this.logs.length);
+		this.reloadLogs();
+		return this.logs.slice(0, n);
 	}
 }
 

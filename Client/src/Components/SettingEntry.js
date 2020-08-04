@@ -15,6 +15,7 @@ class SettingEntry extends Component {
 		if (this.props.selectionType == "toggle") {
 			configInput = <ToggleSwitch 
 				i={this.props.i} 
+				settingName={this.props.settingName}
 				onChange={this.props.onChange} 
 				className="Input" 
 				value={this.props.value} 

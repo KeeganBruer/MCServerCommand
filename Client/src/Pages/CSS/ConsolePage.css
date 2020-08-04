@@ -1,15 +1,30 @@
 .PageWrapper {
 	height: 100%;
 }
-
+.ConsoleWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 91vh;
+}
 .Console {
 	width: 100%;
-	height: 80vh;
+	flex: 20;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column-reverse;
 }
 
 .ConsoleInput {
-	
+	margin: 10px;
+	width: 90%;
+	flex: 1;
+	display: flex;
+}
+.CommandBox {
+	flex: 5;
+}
+
+.SendButton {
+	flex: 1;
 }

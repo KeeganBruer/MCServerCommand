@@ -18,6 +18,8 @@ class ConsolePage extends Component {
 		super(props);
 		this.state = {
 			command: '',
+			commandHistory: [],
+			historyI: -1,
 			entries: [],
 			consoleHistoryUpToDate: false
 		};
@@ -26,6 +28,8 @@ class ConsolePage extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.onConsoleCommand = this.onConsoleCommand.bind(this);
 		this.addEntry = this.addEntry.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.isClientCommand = this.isClientCommand.bind(this);
 		
 		this.props.App.state.socket.on("onConsoleOutput", (data) => {
 			console.log(data);
@@ -33,16 +37,18 @@ class ConsolePage extends Component {
 		});
 		this.props.App.state.socket.on("onConsoleHistory", (data) => {
 			if (!this.state.consoleHistoryUpToDate) {
-				for (let entry of data ) {
-					this.addEntry(entry);
+				for (let ri in data ) {
+					let i = (data.length - 1) - ri;
+					this.addEntry(data[i]);
 				}
 				this.setState({consoleHistoryUpToDate: true});
 			}
 		});
-		
+	}
+	componentDidMount() {
+		this.CommandBox.focus();
 		this.props.App.state.socket.emit("getConsoleHistory", maxConsoleMessages);
 	}
-	
 	handleChange(event) {
 		this.setState({command: event.target.value});
 	}
@@ -55,24 +61,57 @@ class ConsolePage extends Component {
 		this.setState({entries: newEntries});
 	}
 	onConsoleCommand(event) {
-		console.log(this.props.App.state.socket)
-		let response = {msgType: "Client", timestamp: new Date().toLocaleTimeString(), body: this.state.command};
-		this.props.App.state.socket.emit("onConsoleInput", response);
-		this.addEntry(response)
-		this.setState({command: ""});
 		event.preventDefault();
+		let response = {msgType: "Client", timestamp: new Date().toLocaleTimeString(), body: this.state.command};
+		let historyArray = this.state.commandHistory;
+		historyArray.unshift(this.state.command);
+		this.setState({command: "", historyI: -1, commandHistory: historyArray});
+		if (this.isClientCommand(response)) {
+			response.msgType = "Interface";
+			this.addEntry(response);
+			return;
+		} else {
+			this.addEntry(response)
+			this.props.App.state.socket.emit("onConsoleInput", response);
+		}
+	}
+	isClientCommand(data) {
+		if (data.body.toLowerCase().indexOf("test") > -1) {
+			this.props.App.state.socket.emit("onClientCommand", data);
+			return true;
+		}
+		return false;
+	}
+	handleKeyDown(e) {
+		if (e.key === 'Enter') {
+			this.onConsoleCommand(e);
+		} else if (e.key === "ArrowUp") {
+			let i = parseInt(this.state.historyI) + 1;
+			let previous = this.state.commandHistory[i];
+			if (previous) {
+				this.setState({command: previous, historyI: i});
+			}
+		}else if (e.key === "ArrowDown") {
+			let i = parseInt(this.state.historyI) - 1;
+			let previous = this.state.commandHistory[i];
+			if (previous) {
+				this.setState({command: previous, historyI: i});
+			} else {
+				this.setState({command: "", historyI: -1});
+			}
+		}
 	}
 	render() {
 		return (
 			<div className="PageWrapper">
 				<NavBar currentPage="Console"/>
-				<div className="Console">
-					{this.state.entries}
-				</div>
-				<div className="ConsoleInput">
-					<form onSubmit={this.onConsoleCommand}>
-						<input type="text" value={this.state.command} onChange={this.handleChange} />
-						<input type="submit" value="Submit" />
+				<div className="ConsoleWrapper">
+					<div className="Console">
+						{this.state.entries}
+					</div>
+					<form className="ConsoleInput" onSubmit={this.onConsoleCommand} >
+						<input type="text" className="CommandBox" value={this.state.command} onChange={this.handleChange} ref={(input) => { this.CommandBox = input; }} onKeyDown={this.handleKeyDown}/>
+						<input type="submit" className="SendButton" value="Submit" />
 					</form>
 				</div>
 			</div>

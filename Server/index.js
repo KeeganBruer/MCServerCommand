@@ -25,8 +25,40 @@ io.on("connection", (socket) => {
   socket.on("getAllUsers", (data) => {
 	 socket.emit("onAllUsers", LogManager.getAllUsers());
   });
+  socket.on("getGamerules", (data) => {
+	let response = {
+		msgType: "Server",
+		timestamp: "",
+		body: "gamerule"
+	};
+	 MCServer.sendConsoleInput(response, (data) => {
+		 let gamerules = data.body.split(",");
+		 let response = [];
+		 for (let rule of gamerules) {
+			 let ruleArray = rule.trim().split("=");
+			 response.push({
+				 settingValue: ruleArray[0].trim(),
+				 value: ruleArray[1].trim()
+			 });
+		 }
+		 socket.emit("onGamerules", response);
+	 }); 
+  });
   socket.on("onConsoleInput", (data) => {
-	 MCServer.sendConsoleInput(data); 
+	let callback;
+	if (data.msgType.indexOf("Hidden") > -1) {
+		callback = () => {
+			
+		}
+	}
+	MCServer.sendConsoleInput(data, callback); 
+  });
+  socket.on("onClientCommand", (data) => {
+	let fullCommand = data.body.toLowerCase();
+	let commandArray = fullCommand.split(" ");
+	if (commandArray[0].indexOf("test") > -1) {
+		console.log("test Command")  
+	}
   });
   socket.on("disconnect", () => {
     console.log("Client disconnected");

@@ -1,0 +1,43 @@
+Server|$| Your private IP address is|$| 8:31:24 PM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 8:31:24 PM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 8:31:24 PM
+Server|$| NO LOG FILE! - setting up server logging...|$| 8:31:24 PM
+Server|$| Starting Server|$| 2020-08-03 20:31:24
+Server|$| Version 1.16.10.2|$| 2020-08-03 20:31:24
+Server|$| Session ID 5c06d082-6509-4bb8-ad41-96cade5312e3|$| 2020-08-03 20:31:24
+Server|$| Level Name: Bedrock level|$| 2020-08-03 20:31:24
+Server|$| Game mode: 0 Survival|$| 2020-08-03 20:31:24
+Server|$| Difficulty: 1 EASY|$| 2020-08-03 20:31:24
+Server|$| opening worlds/Bedrock level/db|$| 2020-08-03 20:31:24
+Server|$| IPv4 supported, port: 19132|$| 2020-08-03 20:31:25
+Server|$| IPv6 supported, port: 19133|$| 2020-08-03 20:31:25
+Server|$| IPv4 supported, port: 62355|$| 2020-08-03 20:31:25
+Server|$| IPv6 supported, port: 62356|$| 2020-08-03 20:31:25
+Server|$| Server started.|$| 2020-08-03 20:31:25
+Server|$| 08-03-2020|$| 8:46:24 PM
+Server|$| Your public IP address is|$| 8:46:24 PM
+Server|$| 71.81.201.40|$| 8:46:24 PM
+Server|$| Your private IP address is|$| 8:46:24 PM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 8:46:24 PM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 8:46:24 PM
+Server|$| NO LOG FILE! - setting up server logging...|$| 8:46:24 PM
+Server|$| Starting Server|$| 2020-08-03 20:46:24
+Server|$| Version 1.16.10.2|$| 2020-08-03 20:46:24
+Server|$| Session ID 0fda5c1e-1e2b-4df2-9d06-a94656311f82|$| 2020-08-03 20:46:24
+Server|$| Level Name: Bedrock level|$| 2020-08-03 20:46:24
+Server|$| Game mode: 0 Survival|$| 2020-08-03 20:46:24
+Server|$| Difficulty: 1 EASY|$| 2020-08-03 20:46:24
+Server|$| opening worlds/Bedrock level/db|$| 2020-08-03 20:46:24
+Server|$| IPv4 supported, port: 19132|$| 2020-08-03 20:46:29
+Server|$| IPv6 supported, port: 19133|$| 2020-08-03 20:46:29
+Server|$| IPv4 supported, port: 55657|$| 2020-08-03 20:46:29
+Server|$| IPv6 supported, port: 55658|$| 2020-08-03 20:46:29
+Server|$| Server started.|$| 2020-08-03 20:46:29
+Interface|$| gamemode|$| 8:56:33 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:56:33 PM
+Client|$| gamemode|$| 8:57:48 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:57:48 PM
+Client|$| gamemode|$| 8:58:32 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:58:32 PM
+Client|$| gamemode|$| 8:58:48 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:58:48 PM

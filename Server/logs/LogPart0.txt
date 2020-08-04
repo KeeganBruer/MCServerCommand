@@ -1,6 +1,51 @@
-Server|$| Game rule dodaylightcycle has been updated to false|$| 12:33:43 AM
-Client|$| gamerule dodaylightcycle false|$| 12:33:43 AM
-Server|$| Game rule dodaylightcycle has been updated to true|$| 12:32:45 AM
-Client|$| gamerule dodaylightcycle true|$| 12:32:45 AM
-Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:44 AM
-Client|$| gamerule dodaylightcycle false|$| 12:32:44 AM
+Client|$| ?|$| 8:19:18 PM
+Server|$| §2--- Showing help page 1 of 18 (/help <page>) ---|$| 8:19:18 PM
+Server|$| /? [command: CommandName]|$| 8:19:18 PM
+Server|$| /? <page: int>|$| 8:19:18 PM
+Server|$| /alwaysday [lock: Boolean]|$| 8:19:18 PM
+Server|$| /changesetting allow-cheats <value: Boolean>|$| 8:19:18 PM
+Server|$| /changesetting difficulty <value: Difficulty>|$| 8:19:18 PM
+Server|$| /changesetting difficulty <value: int>|$| 8:19:18 PM
+Server|$| /clear [player: target] [itemName: Item] [data: int] [maxCount: int]|$| 8:19:18 PM
+Server|$| §2Tip: Use the <tab> key while typing a command to auto-complete the command or its arguments|$| 8:19:18 PM
+Client|$| gamemode|$| 8:19:31 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:19:31 PM
+Client|$| gamemode|$| 8:20:14 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:20:14 PM
+Client|$| gamemode|$| 8:20:17 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:20:17 PM
+Client|$| gamemode|$| 8:20:18 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:20:18 PM
+Client|$| gamemode|$| 8:20:18 PM
+Server|$| Syntax error: Unexpected "": at "/gamemode>><<"|$| 8:20:18 PM
+Client|$| ?|$| 8:20:20 PM
+Server|$| §2--- Showing help page 1 of 18 (/help <page>) ---|$| 8:20:20 PM
+Server|$| /? [command: CommandName]|$| 8:20:20 PM
+Server|$| /? <page: int>|$| 8:20:20 PM
+Server|$| /alwaysday [lock: Boolean]|$| 8:20:20 PM
+Server|$| /changesetting allow-cheats <value: Boolean>|$| 8:20:20 PM
+Server|$| /changesetting difficulty <value: Difficulty>|$| 8:20:20 PM
+Server|$| /changesetting difficulty <value: int>|$| 8:20:20 PM
+Server|$| /clear [player: target] [itemName: Item] [data: int] [maxCount: int]|$| 8:20:20 PM
+Server|$| §2Tip: Use the <tab> key while typing a command to auto-complete the command or its arguments|$| 8:20:20 PM
+Client|$| ?|$| 8:20:21 PM
+Server|$| §2--- Showing help page 1 of 18 (/help <page>) ---|$| 8:20:21 PM
+Server|$| /? [command: CommandName]|$| 8:20:21 PM
+Server|$| /? <page: int>|$| 8:20:21 PM
+Server|$| /alwaysday [lock: Boolean]|$| 8:20:21 PM
+Server|$| /changesetting allow-cheats <value: Boolean>|$| 8:20:21 PM
+Server|$| /changesetting difficulty <value: Difficulty>|$| 8:20:21 PM
+Server|$| /changesetting difficulty <value: int>|$| 8:20:21 PM
+Server|$| /clear [player: target] [itemName: Item] [data: int] [maxCount: int]|$| 8:20:21 PM
+Server|$| §2Tip: Use the <tab> key while typing a command to auto-complete the command or its arguments|$| 8:20:21 PM
+Client|$| ?|$| 8:20:22 PM
+Server|$| §2--- Showing help page 1 of 18 (/help <page>) ---|$| 8:20:22 PM
+Server|$| /? [command: CommandName]|$| 8:20:22 PM
+Server|$| /? <page: int>|$| 8:20:22 PM
+Server|$| /alwaysday [lock: Boolean]|$| 8:20:22 PM
+Server|$| /changesetting allow-cheats <value: Boolean>|$| 8:20:22 PM
+Server|$| /changesetting difficulty <value: Difficulty>|$| 8:20:22 PM
+Server|$| /changesetting difficulty <value: int>|$| 8:20:22 PM
+Server|$| /clear [player: target] [itemName: Item] [data: int] [maxCount: int]|$| 8:20:22 PM
+Server|$| §2Tip: Use the <tab> key while typing a command to auto-complete the command or its arguments|$| 8:20:22 PM
+Server|$| 08-03-2020|$| 8:27:41 PM

@@ -10,19 +10,15 @@ class ToggleSwitch extends Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
-		this.state = {
-			value: props.value
-		}
+		console.log(this.props.settingName + " " + this.props.value);
 	}
 	handleClick(e) {
 		e.preventDefault();
-		if (this.state.value == "true") {
-			this.setState({value: "false"});
+		if (this.props.value == "true") {
 			if (this.props.onChange) {
 				this.props.onChange("false", this.props.i);
 			}
 		} else {
-			this.setState({value: "true"});
 			if (this.props.onChange) {
 				this.props.onChange("true", this.props.i);
 			}
@@ -31,7 +27,7 @@ class ToggleSwitch extends Component {
 	render() {
 		let onCName = "box";
 		let offCName = "box";
-		if (this.state.value == "true") {
+		if (this.props.value == "true") {
 			onCName += " white";
 			offCName += " green";
 		} else {

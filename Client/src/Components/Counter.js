@@ -10,15 +10,19 @@ class Counter extends Component {
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
-		this.state = {
-			value: props.value
+		this.handleCount = this.handleCount.bind(this);
+	}
+	handleCount(e) {
+		e.preventDefault();
+		let newValue = parseInt(this.props.value) + parseInt(e.target.dataset.value);
+		if (this.props.onChange) {
+			this.props.onChange(newValue, this.props.i);
 		}
 	}
 	handleChange(e) {
 		e.preventDefault();
-		console.log(e.target.dataset.value);
-		let newValue = parseInt(this.state.value) + parseInt(e.target.dataset.value);
-		this.setState({value: newValue});
+		let newValue = e.target.value;
+		console.log(newValue);
 		if (this.props.onChange) {
 			this.props.onChange(newValue, this.props.i);
 		}
@@ -27,9 +31,9 @@ class Counter extends Component {
 		
 		return (
 			<div className="Dropdown">
-				<div className="changeButton" onClick={this.handleChange} data-value="-1"/>
-				<h1>{this.state.value}</h1>
-				<div className="changeButton" onClick={this.handleChange} data-value="1"/>
+				<div className="changeButton" onClick={this.handleCount} data-value="-1"/>
+				<input className="count" type="text" value={this.props.value} onChange={this.handleChange} />
+				<div className="changeButton" onClick={this.handleCount} data-value="1"/>
 			</div>
 		);
 	}

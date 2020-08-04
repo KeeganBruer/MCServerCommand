@@ -1,11 +1,15 @@
 .Dropdown {
 	display: flex;
 	align-items: center;
-	height: 100%;
 	margin: 0px 10px;
 }
+.count {
+	width: 60px;
+	font-size: 20px;
+	text-align: center;
+}
 .changeButton {
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	background-color: red;
 }

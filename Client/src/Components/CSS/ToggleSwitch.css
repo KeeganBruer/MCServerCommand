@@ -1,10 +1,13 @@
 .ToggleSwitch {
 	display: flex;
-	width: 30px;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
 	height: 20px;
 	margin: 0px 10px;
 }
 .box {
+	height: 20px;
 	flex: 1;
 }
 .white {
@@ -14,7 +17,9 @@
 
 .green {
 	background-color: green;
+	border-style: inset;
 }
 .red {
 	background-color: red;
+	border-style: inset;
 }

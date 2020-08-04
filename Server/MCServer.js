@@ -56,6 +56,7 @@ class MCServer {
 		let data = this.commandArray.shift();
 		if (data == undefined) return;
 		data = data.replace("$#$", "");
+		if (data.toLowerCase().indexOf("autocompaction") > -1) return;
 		let timestamp = new Date().toLocaleTimeString();
 		let body = data;
 		if (data.indexOf("INFO") > -1) {
@@ -67,10 +68,10 @@ class MCServer {
 			timestamp: timestamp,
 			body: body
 		};
-		if (this.socket) {
+		let isLogged = this.LogManager.onConsoleOutput(response);
+		if (this.socket && isLogged) {
 			this.socket.emit("onConsoleOutput", response);
 		}
-		this.LogManager.onConsoleOutput(response);
 		
 		if (body.indexOf("connected") < 0) {
 			return;
@@ -88,10 +89,10 @@ class MCServer {
 			body: body
 		}, this.onPlayerEvent, this);
 	}
-	sendConsoleInput(data) {
+	sendConsoleInput(data, callback) {
 		//Send output with a newline character to act as pressing the enter key.
 		this.console.stdin.write(data.body + "\n");
-		this.LogManager.onConsoleInput(data);
+		this.LogManager.onConsoleInput(data, callback);
 	}
 	onPlayerEvent(array, options) {
 		let pEvent = array.pop();

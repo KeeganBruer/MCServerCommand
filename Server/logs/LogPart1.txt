@@ -1,20 +1,50 @@
-Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:39 AM
-Client|$| gamerule dodaylightcycle false|$| 12:32:39 AM
-Server|$| Game rule dodaylightcycle has been updated to false|$| 12:32:32 AM
-Client|$| gamerule dodaylightcycle false|$| 12:32:32 AM
-Server|$| Server started.|$| 2020-08-02 00:32:27
-Server|$| IPv6 supported, port: 64469|$| 2020-08-02 00:32:27
-Server|$| IPv4 supported, port: 64468|$| 2020-08-02 00:32:27
-Server|$| IPv6 supported, port: 19133|$| 2020-08-02 00:32:26
-Server|$| IPv4 supported, port: 19132|$| 2020-08-02 00:32:26
-Server|$| opening worlds/Bedrock level/db|$| 2020-08-02 00:32:26
-Server|$| Difficulty: 1 EASY|$| 2020-08-02 00:32:25
-Server|$| Game mode: 0 Survival|$| 2020-08-02 00:32:25
-Server|$| Level Name: Bedrock level|$| 2020-08-02 00:32:25
-Server|$| Session ID b133bd85-dc22-443e-ab84-4c0f881c3e8d|$| 2020-08-02 00:32:25
-Server|$| Version 1.16.10.2|$| 2020-08-02 00:32:25
-Server|$| Starting Server|$| 2020-08-02 00:32:25
-Server|$| NO LOG FILE! - setting up server logging...|$| 12:32:25 AM
-Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 12:32:25 AM
-Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 12:32:25 AM
-Server|$| Your private IP address is|$| 12:32:25 AM
+Server|$| Your public IP address is|$| 8:27:41 PM
+Server|$| 71.81.201.40|$| 8:27:41 PM
+Server|$| Your private IP address is|$| 8:27:41 PM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 8:27:41 PM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 8:27:41 PM
+Server|$| NO LOG FILE! - setting up server logging...|$| 8:27:41 PM
+Server|$| Starting Server|$| 2020-08-03 20:27:41
+Server|$| Version 1.16.10.2|$| 2020-08-03 20:27:41
+Server|$| Session ID 3553cd11-d0e3-4869-8e23-02f67d08008a|$| 2020-08-03 20:27:41
+Server|$| Level Name: Bedrock level|$| 2020-08-03 20:27:41
+Server|$| Game mode: 0 Survival|$| 2020-08-03 20:27:41
+Server|$| Difficulty: 1 EASY|$| 2020-08-03 20:27:41
+Server|$| opening worlds/Bedrock level/db|$| 2020-08-03 20:27:41
+Server|$| IPv4 supported, port: 19132|$| 2020-08-03 20:27:42
+Server|$| IPv6 supported, port: 19133|$| 2020-08-03 20:27:42
+Server|$| IPv4 supported, port: 54741|$| 2020-08-03 20:27:42
+Server|$| IPv6 supported, port: 54742|$| 2020-08-03 20:27:42
+Server|$| Server started.|$| 2020-08-03 20:27:42
+Server|$| 08-03-2020|$| 8:28:22 PM
+Server|$| Your public IP address is|$| 8:28:22 PM
+Server|$| 71.81.201.40|$| 8:28:22 PM
+Server|$| Your private IP address is|$| 8:28:22 PM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 8:28:22 PM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 8:28:22 PM
+Server|$| NO LOG FILE! - setting up server logging...|$| 8:28:22 PM
+Server|$| Starting Server|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| Version 1.16.10.2|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| Session ID 96e6fb88-bbe8-4e8c-b44f-6bce0b9450e7|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| Level Name: Bedrock level|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| Game mode: 0 Survival|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| Difficulty: 1 EASY|$| NO LOG FILE! - 2020-08-03 20:28:22
+Server|$| opening worlds/Bedrock level/db|$| NO LOG FILE! - 2020-08-03 20:28:23
+Server|$| NO LOG FILE! - [2020-08-03 20:28:23 WARN] LevelDB worlds/Bedrock level/db status NOT OK(IO error: _wfopen_s failed to open file for: ReadBinary(rb). ErrorCode: 13 - 'Permission denied'). Trying repair.|$| 8:28:23 PM
+Server|$| IPv4 supported, port: 0|$| NO LOG FILE! -2020-08-03 20:28:23
+Server|$| IPv6 supported, port: 0|$| NO LOG FILE! - 2020-08-03 20:28:23
+Server|$| NO LOG FILE! - [2020-08-03 20:28:23 ERROR] Network port occupied, can't start server.|$| 8:28:23 PM
+Server|$| 08-03-2020|$| 8:28:34 PM
+Server|$| Your public IP address is|$| 8:28:34 PM
+Server|$| 71.81.201.40|$| 8:28:34 PM
+Server|$| Your private IP address is|$| 8:28:34 PM
+Server|$| Autoconfiguration IPv4 Address. . : 169.254.101.239|$| 8:28:34 PM
+Server|$| IPv4 Address. . . . . . . . . . . : 192.168.1.22|$| 8:28:34 PM
+Server|$| NO LOG FILE! - setting up server logging...|$| 8:28:34 PM
+Server|$| Starting Server|$| 2020-08-03 20:28:34
+Server|$| Version 1.16.10.2|$| 2020-08-03 20:28:34
+Server|$| Session ID 07a97c90-606d-4174-86f3-7b5e2b7bfd87|$| 2020-08-03 20:28:34
+Server|$| Level Name: Bedrock level|$| 2020-08-03 20:28:34
+Server|$| Game mode: 0 Survival|$| 2020-08-03 20:28:34
+Server|$| Difficulty: 1 EASY|$| 2020-08-03 20:28:34
+Server|$| opening worlds/Bedrock level/db|$| 2020-08-03 20:28:34
